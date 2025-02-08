@@ -20,11 +20,12 @@ const Skills = () => {
 						<p className='py-4 text-gray-400'>These are the technologies I have worked with and gained experience in throughout my journey as a student and a developer</p>
 					</div>
 
-					<div className='w-full grid grid-cols-4 gap-4 sm:gap-6 text-center py-8'>
+					<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center py-4'>
 						{skills.map((skill, index) => (
 							<div
 								key={index}
-								className='shadow-lg shadow-[#040c16] rounded-md p-4 hover:scale-110 duration-500'
+								className="shadow-lg shadow-[#040c16] rounded-md p-4 transform transition duration-500 hover:scale-110"
+								// className='shadow-lg shadow-[#040c16] rounded-md p-4 hover:scale-110 duration-500'
 							>
 								<Image
 									src={skill.src}

@@ -10,10 +10,12 @@ export default function Home() {
 			<Head>
 				<title>Portfolio</title>
 			</Head>
-			<Navbar />
+			<header className="fixed top-0 w-full flex justify-between items-center p-4 bg-black">
+				<Navbar/>
+      </header>
+			
 
-			<section id="home" className="text-center p-10 min-h-screen flex flex-col justify-center">
-				{/* <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full"> */}
+			<section id="home" className="text-center p-20 min-h-screen flex flex-col justify-center">
 				<h1 className="text-4xl sm:text-6xl font-bold text-[#ccd6f6]">
 					Hi, I&apos;m Minh Tam.
 				</h1>
@@ -32,7 +34,7 @@ export default function Home() {
 			<Skills />
 			<Projects />
 			<Contact />
-
+			
 			<footer className="flex flex-row justify-between px-10 py-5 bg-black">
 				<div className="flex flex-row gap-6 mobile:flex-col mobile:gap-2 ">
 					<a className="font-bold text-lg" href="https://facebook.com" target="_blank">FACEBOOK</a>
