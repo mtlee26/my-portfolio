@@ -5,6 +5,7 @@ import Projects from '@/component/Projects';
 import Skills from '@/component/Skills';
 import Head from 'next/head';
 import Nav from '@/component/Navbar';
+import { FaFacebook, FaGithub } from "react-icons/fa";
 
 export default function Home() {
 	return (
@@ -38,10 +39,13 @@ export default function Home() {
 			<Projects />
 			<Contact />
 
-			<footer className="flex flex-row justify-between px-10 py-5 bg-black">
+			<footer className="bottom-0 flex flex-row justify-between px-10 py-5 bg-black">
 				<div className="flex flex-row gap-6 mobile:flex-col mobile:gap-2 ">
-					<a className="font-bold text-lg" href="https://facebook.com" target="_blank">FACEBOOK</a>
-					<a className="font-bold text-lg" href="https://github.com/mtlee26" target="_blank">GITHUB</a>
+					<a className="font-bold text-base text-white" href="https://facebook.com" target="_blank">
+					<FaFacebook className="w-10 h-10 text-blue-600" /></a>
+					<a className="font-bold text-lg" href="https://github.com/mtlee26" target="_blank">
+						<FaGithub className="w-10 h-10 text-white" />
+					</a>
 				</div>
 			</footer>
 		</div>
