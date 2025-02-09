@@ -9,11 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/accordion": "^2.2.8",
+    "@heroui/navbar": "^2.2.9",
+    "@heroui/react": "^2.6.14",
+    "@radix-ui/react-label": "^2.1.2",
+    "@tabler/icons-react": "^3.30.0",
+    "clsx": "^2.1.1",
+    "motion": "^12.4.1",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
-    "react-scroll": "^1.9.2"
+    "react-scroll": "^1.9.2",
+    "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -26,7 +26,7 @@ const Projects = () => {
 
 	return (
 		<section id="projects" className="text-center p-10 min-h-screen flex flex-col justify-center">
-			<div className='w-full min-h-screen bg-[#0a192f] text-gray-300'>
+			<div className='w-full min-h-screen  text-gray-300'>
 				<div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full'>
 					<div className='pb-8'>
 						<h1 className='text-4xl font-bold inline border-b-4 text-gray-300 border-pink-600'>
