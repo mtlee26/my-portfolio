@@ -13,11 +13,11 @@ const Skills = () => {
 	]
 
 	return (
-		<section id="skills" className="max-h-screen flex flex-col items-center justify-center">
+		<section id="skills" className="min-h-screen flex flex-col items-center justify-center">
 			<h2 className="text-4xl font-bold text-center mb-10">Skills</h2>
 			<p className='py-8 text-xl text-center text-gray-400 mb-8'>These are the technologies I have worked with and gained experience in throughout my journey as a student and a developer</p>
-			<div className="container mx-auto px-4 max-w-6xl m-4">
-				<div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
+			<div className="container mx-auto px-4 max-w-6xl m-4 flex flex-col items-center justify-center">
+				<div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 flex flex-col items-center justify-center">
 					{skills.map((skill, index) => (
 						<div
 							key={index}
@@ -31,10 +31,11 @@ const Skills = () => {
 								className='mx-auto'
 							/>
 
-							<p className="my-4 text-xl text-center mb-2">{skill.name}</p>
+							<p className="my-4 text-md text-center mb-2">{skill.name}</p>
 						</div>
 					))}
 				</div>
+
 			</div>
 		</section>
 	)
