@@ -43,15 +43,6 @@ export const BentoGridItem = ({
 }) => {
 	const [copied, setCopied] = useState(false);
 
-	const defaultOptions = {
-		loop: copied,
-		autoplay: copied,
-		// animationData,
-		rendererSettings: {
-			preserveAspectRatio: "xMidYMid slice",
-		},
-	};
-
 	return (
 		<>
 			<div
@@ -59,12 +50,7 @@ export const BentoGridItem = ({
 					"row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
 					className
 				)}
-			// style={{
 
-			// 	background: "rgb(4,7,29)",
-			// 	backgroundColor:
-			// 		"linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-			// }}
 			>
 				{/* add img divs */}
 				<div className={`${id === 6 && "flex justify-center"} h-full`}>

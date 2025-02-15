@@ -18,7 +18,8 @@ const slugs = [
 	"visualstudiocode",
 	"figma",
 	"python",
-
+	"mysql",
+	"cplusplus",
 ];
 
 function Skills() {

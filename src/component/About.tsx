@@ -5,7 +5,7 @@ import { BentoGrid, BentoGridItem } from '@/component/ui/BentoGrid';
 const gridItems = [
 	{
 		id: 1,
-		title: "Tech enthusiast with a passion for development.",
+		title: "Continuous learner in the world of tech and design.",
 		description: "",
 		className: "lg:col-span-2 md:col-span-3 md:row-span-1",
 		imgClassName: "",
@@ -36,10 +36,10 @@ const gridItems = [
 	},
 ];
 
-const Grid = () => {
+const About = () => {
 	return (
 		<section id='about'
-			className="p-10 flex items-center justify-center bg-transparent"
+			className="h-screen p-10 flex items-center justify-center bg-transparent"
 		>
 			<BentoGrid>
 				{gridItems.map(({ id, title, titleClassName, description, className, img, imgClassName, spareImg }, i) => (
@@ -60,4 +60,4 @@ const Grid = () => {
 	)
 }
 
-export default Grid
+export default About

@@ -6,7 +6,7 @@ import Projects from '@/component/Projects';
 import Contact from '@/component/Contact';
 import Footer from '@/component/Footer';
 import CustomCursor from '@/component/ui/Cursor';
-import Grid from '@/component/About';
+import About from '@/component/About';
 
 export default function Home() {
 	return (
@@ -17,7 +17,7 @@ export default function Home() {
 			<CustomCursor />
 			<main>
 				<HomePage></HomePage>
-				<Grid></Grid>
+				<About></About>
 				<Skills></Skills>
 				<Projects></Projects>
 				<Contact></Contact>
