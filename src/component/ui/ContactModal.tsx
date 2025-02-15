@@ -1,16 +1,49 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Calendar } from 'lucide-react';
 
 const ContactModal = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
-
-	const handleSubmit = (e: any) => {
+	const [status, setStatus] = useState('');
+	useEffect(() => {
+		if (status === 'success') {
+			const timer = setTimeout(() => {
+				setIsOpen(false);
+				setStatus('none');
+			}, 5000);
+			return () => clearTimeout(timer);
+		}
+	}, [status]);
+	const handleSubmit = async (e: { preventDefault: () => void; }) => {
 		e.preventDefault();
-		setIsOpen(false);
+		setStatus('sending');
+		try {
+			const formData = {
+				name,
+				email,
+				message,
+			};
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+			if (res.ok) {
+				setStatus('success');
+			} else {
+				setStatus('fail');
+			}
+		} catch (error) {
+			console.error(error);
+			setStatus('fail');
+		}
 	};
+
 
 	return (
 		<>
@@ -36,7 +69,10 @@ const ContactModal = () => {
 						exit={{ opacity: 0 }}
 						className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
 						onClick={(e) => {
-							if (e.target === e.currentTarget) setIsOpen(false);
+							if (e.target === e.currentTarget) {
+								setIsOpen(false);
+								setStatus('none');
+							}
 						}}
 					>
 						<motion.div
@@ -66,7 +102,7 @@ const ContactModal = () => {
 
 							{/* Quick Actions */}
 							<div className="grid grid-cols-2 gap-4 mb-6">
-								<a href="mailto:hello@example.com" className="flex items-center justify-center gap-2 bg-[#2a2a2a] p-3 rounded-lg text-white hover:bg-[#3a3a3a] transition-colors">
+								<a href="mailto:letam1014@gmail.com" className="flex items-center justify-center gap-2 bg-[#2a2a2a] p-3 rounded-lg text-white hover:bg-[#3a3a3a] transition-colors">
 									<Mail className="w-5 h-5" />
 									<span>Email Me</span>
 								</a>
@@ -82,6 +118,16 @@ const ContactModal = () => {
 
 							{/* Contact Form */}
 							<form onSubmit={handleSubmit} className="space-y-4">
+								<div>
+									<input
+
+										placeholder="Your name"
+										value={name}
+										onChange={(e) => setName(e.target.value)}
+										className="w-full bg-[#2a2a2a] rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+										required
+									/>
+								</div>
 								<div>
 									<input
 										type="email"
@@ -103,10 +149,19 @@ const ContactModal = () => {
 								</div>
 								<button
 									type="submit"
-									className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+									className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors"
 								>
-									Send Message
+									{status === 'sending'
+										? 'Sending...'
+										: status === 'success'
+											? 'Thank You'
+											: 'Send Message'}
+
 								</button>
+								{status === 'fail' && (
+									<div className="text-red-500 font-medium mt-2">
+										Failed to send. Please try again.
+									</div>)}
 							</form>
 						</motion.div>
 					</motion.div>

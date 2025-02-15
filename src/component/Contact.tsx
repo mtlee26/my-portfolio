@@ -1,5 +1,6 @@
 import ContactModal from "@/component/ui/ContactModal";
 import { motion } from "framer-motion";
+import React, { useState } from 'react';
 
 const Contact = () => {
 	return (
